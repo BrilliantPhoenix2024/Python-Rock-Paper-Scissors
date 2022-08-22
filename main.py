@@ -10,9 +10,11 @@ choice_meaning = {
 
 user_score = 0
 ai_score = 0
+
+i = 0
     
-for i in range(5):
-    user_choice = input("Select from Rock, Paper, Scissors: (r, p, s) ")
+while i < 5:
+    user_choice = input("Select from Rock, Paper, Scissors (r, p, s): ")
     
     ai_choice = random.choice(choices)
 
@@ -29,6 +31,16 @@ for i in range(5):
             ai_score += 1
     else:
         print('Invalid input')
+        i -= 1
 
     print(f'User Score:{user_score} | AI Score:{ai_score}')
     print('\n', '-'*15, '\n')
+    
+    i += 1
+
+if user_score > ai_score:
+    print(f"User Won with {user_score} scores.")
+elif user_score < ai_score:
+    print(f'AI won with {ai_score} Scores.')
+else:
+    print('You are Tie!')
